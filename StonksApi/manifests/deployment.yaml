@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stonks-api
+  labels:
+    app: stonks-api
+  namespace: stonks
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stonks-api
+  template:
+    metadata:
+      labels:
+        app: stonks-api
+    spec:
+      containers:
+      - name: stonks-api
+        image: morganlane/stonks-api:1.0
+        ports:
+        - containerPort: 3000
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
