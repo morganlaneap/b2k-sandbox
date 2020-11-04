@@ -11,10 +11,13 @@ namespace StonksApi.Controllers.GetStonkById
         [Route("/stonks/{id}")]
         public IActionResult Get(string id)
         {
+            var t = "hello!";
+
             return Ok(new Stonk
             {
                 Id = id,
-                Price = new Random().Next(100, 1000000)
+                Price = new Random().Next(100, 1000000),
+                Message = t
             });
         }
     }
